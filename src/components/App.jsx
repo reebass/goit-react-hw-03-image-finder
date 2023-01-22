@@ -22,7 +22,7 @@ export class App extends Component {
 
     const prevPage = prevState.page;
     const nextPage = this.state.page;
-    const perPage = 80;
+    const perPage = 12;
 
     if (prevQuery !== nextQuery || prevPage !== nextPage) {
       this.setState({ loading: true });
@@ -31,6 +31,7 @@ export class App extends Component {
         .then(images => {
           if (images.hits.length === 0) {
             toast.error(`"${nextQuery}" images not found`)
+            this.setState({images: []})
           }
           return this.setState(prevState => ({
             images: [
