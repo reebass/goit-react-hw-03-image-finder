@@ -3,11 +3,10 @@ import { ItemGallery, ListGallery } from './ImageGallery.styled';
 
 
 
-export const ImageGallery = ({queryImages}) => {
-
+export const ImageGallery = ({images}) => {
     return (
       <ListGallery className="gallery">
-        {queryImages.map(image => (
+        {images.map(image => (
             <ItemGallery key={image.id}>
                 <ImageGalleryItem image={image}/>
             </ItemGallery>
@@ -16,4 +15,5 @@ export const ImageGallery = ({queryImages}) => {
       </ListGallery>
     );
   }
+
 

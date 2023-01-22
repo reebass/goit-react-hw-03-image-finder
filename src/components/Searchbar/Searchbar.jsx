@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import { Header, SearchButton, SearchButtonLabel, SearchForm, SearchInput } from './Searchbar.styled';
+import { Header, SearchButton, SearchForm, SearchInput } from './Searchbar.styled';
+import { BiSearch } from 'react-icons/bi'
+import toast from 'react-hot-toast';
 
 export class Searchbar extends Component {
   state = {
@@ -13,7 +15,7 @@ export class Searchbar extends Component {
   hendleSubmit = evt => {
     evt.preventDefault()
     if(this.state.searchQuery.trim() === "") {
-      alert("Введите запрос")
+      toast.error("Please enter a request")
       return
     }
     this.props.onSubmit(this.state.searchQuery);
@@ -25,7 +27,7 @@ export class Searchbar extends Component {
       <Header className="searchbar">
         <SearchForm className="form" onSubmit={this.hendleSubmit}>
           <SearchButton type="submit" className="button">
-            <SearchButtonLabel className="button-label">Search</SearchButtonLabel>
+            <BiSearch size={20}/>
           </SearchButton>
 
           <SearchInput
