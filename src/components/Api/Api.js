@@ -14,8 +14,3 @@ export function fetchImagas(query, page, perPage) {
   ).then(response => response.json());
 }
 
-
-// if (response.ok) {
-//     return response.json()
-// }  
-// return Promise.reject(new Error(`/"${query}/" images not found`));

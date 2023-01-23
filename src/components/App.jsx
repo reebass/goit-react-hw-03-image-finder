@@ -6,8 +6,15 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { fetchImagas } from './Api/Api';
 import { Loader } from './Loader/Loader';
 import toast, { Toaster } from 'react-hot-toast';
+import PropTypes from 'prop-types';
+
+
 
 export class App extends Component {
+  static propTypes = {
+    searchQuery: PropTypes.string
+  }
+
   state = {
     searchQuery: null,
     images: [],
@@ -31,7 +38,6 @@ export class App extends Component {
         .then(images => {
           if (images.hits.length === 0) {
             toast.error(`"${nextQuery}" images not found`)
-            this.setState({images: []})
           }
           return this.setState(prevState => ({
             images: [
